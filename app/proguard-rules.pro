@@ -1,0 +1,8 @@
+-keep class com.kuroscanner.app.** { *; }
+-keep class com.google.zxing.** { *; }
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn com.squareup.okhttp3.**
+-keep class com.squareup.okhttp3.** { *; }
+-dontwarn javax.annotation.Nullable
+-dontwarn javax.annotation.ParametersAreNonnullByDefault
