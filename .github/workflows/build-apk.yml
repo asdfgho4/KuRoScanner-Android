@@ -22,14 +22,17 @@ jobs:
     - name: Set up Android SDK
       uses: android-actions/setup-android@v3
       with:
-        api-level: 35
-        build-tools-version: 35.0.0
+        cmdline-tools-version: latest
+        accept-android-sdk-licenses: true
+        packages: |
+          platforms;android-35
+          build-tools;35.0.0
 
     - name: Build with Gradle
-      run: cd android && chmod +x gradlew && ./gradlew assembleRelease
+      run: chmod +x gradlew && ./gradlew assembleRelease
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: KuRoScanner.apk
-        path: android/app/build/outputs/apk/release/app-release.apk
+        path: app/build/outputs/apk/release/app-release.apk
